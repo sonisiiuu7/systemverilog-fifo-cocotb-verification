@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 from pathlib import Path
 import subprocess
@@ -22,10 +23,18 @@ def main():
     parser.add_argument("--waves", action="store_true")
     parser.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.width < 1 or args.depth < 2:
+        parser.error("WIDTH must be >=1 and DEPTH must be >=2")
+    if not re.fullmatch(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*", args.phase):
+        parser.error("phase must be a relative label such as local or phase5/restored")
     result = ROOT / "results" / args.phase
     result.mkdir(parents=True, exist_ok=True)
     source = (args.rtl or ROOT / ("tb/smoke.sv" if args.suite == "smoke" else "rtl/sync_fifo.sv")).resolve()
     if not args.child:
+        # Remove only generated evidence in this selected run directory, avoiding stale passes.
+        for previous in result.iterdir():
+            if previous.is_file() and previous.suffix in {".json", ".xml", ".csv", ".log", ".fst"}:
+                previous.unlink()
         command = [sys.executable, str(Path(__file__).resolve()), *sys.argv[1:], "--child"]
         proc = subprocess.run(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         # Keep published logs portable and avoid exposing workstation paths.

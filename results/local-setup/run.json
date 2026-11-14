@@ -1,0 +1,8 @@
+{
+  "suite": "smoke",
+  "width": 8,
+  "depth": 16,
+  "python": "3.11.9",
+  "source_sha256": "87013ef58ed5b6238c3caa7602ae72f5df040d669e27551088d5c6ae59a92af5",
+  "exit_code": 0
+}

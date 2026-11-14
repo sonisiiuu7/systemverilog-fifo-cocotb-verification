@@ -1,0 +1,75 @@
+     -.--ns INFO     gpi                                ..mbed\gpi_embed.cpp:94   in _embed_init_python              Using Python 3.11.9 interpreter at <workspace>\outputs\fifo-verification\.venv\Scripts\python.exe
+     -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with supplied seed 20261114
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from <workspace>\outputs\fifo-verification\.venv\Lib\site-packages\cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_fifo.basic (1/20)
+    80.00ns INFO     cocotb.regression                  test_fifo.basic passed
+    80.00ns INFO     cocotb.regression                  running test_fifo.reset_and_hold (2/20)
+   182.00ns INFO     cocotb.regression                  test_fifo.reset_and_hold passed
+   182.00ns INFO     cocotb.regression                  running test_fifo.fill_drain (3/20)
+   512.00ns INFO     cocotb.regression                  test_fifo.fill_drain passed
+   512.00ns INFO     cocotb.regression                  running test_fifo.overflow_protection (4/20)
+   872.00ns INFO     cocotb.regression                  test_fifo.overflow_protection passed
+   872.00ns INFO     cocotb.regression                  running test_fifo.underflow_protection (5/20)
+   962.00ns INFO     cocotb.regression                  test_fifo.underflow_protection passed
+   962.00ns INFO     cocotb.regression                  running test_fifo.boundaries (6/20)
+  1312.01ns INFO     cocotb.regression                  test_fifo.boundaries passed
+  1312.01ns INFO     cocotb.regression                  running test_fifo.streaming (7/20)
+  1982.01ns INFO     cocotb.regression                  test_fifo.streaming passed
+  1982.01ns INFO     cocotb.regression                  running test_fifo.wraparound (8/20)
+  3592.01ns INFO     cocotb.regression                  test_fifo.wraparound passed
+  3592.01ns INFO     cocotb.regression                  running test_fifo.reset_during_traffic (9/20)
+  4002.01ns INFO     cocotb.regression                  test_fifo.reset_during_traffic passed
+  4002.01ns INFO     cocotb.regression                  running test_fifo.data_patterns (10/20)
+  4252.01ns INFO     cocotb.regression                  test_fifo.data_patterns passed
+  4252.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=0 (11/20)
+ 14802.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=0 passed
+ 14802.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=1 (12/20)
+ 25352.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=1 passed
+ 25352.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=2 (13/20)
+ 35902.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=2 passed
+ 35902.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=3 (14/20)
+ 46452.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=3 passed
+ 46452.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=4 (15/20)
+ 57002.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=4 passed
+ 57002.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=5 (16/20)
+ 67552.01ns INFO     cocotb.regression                  test_fifo.randomized/seed=5 passed
+ 67552.01ns INFO     cocotb.regression                  running test_fifo.randomized/seed=6 (17/20)
+ 78102.02ns INFO     cocotb.regression                  test_fifo.randomized/seed=6 passed
+ 78102.02ns INFO     cocotb.regression                  running test_fifo.randomized/seed=7 (18/20)
+ 88652.02ns INFO     cocotb.regression                  test_fifo.randomized/seed=7 passed
+ 88652.02ns INFO     cocotb.regression                  running test_fifo.randomized/seed=8 (19/20)
+ 99192.02ns INFO     cocotb.regression                  test_fifo.randomized/seed=8 passed
+ 99192.02ns INFO     cocotb.regression                  running test_fifo.randomized/seed=9 (20/20)
+109722.02ns INFO     cocotb.regression                  test_fifo.randomized/seed=9 passed
+109722.02ns INFO     cocotb.regression                  ****************************************************************************************
+                                                        ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ****************************************************************************************
+                                                        ** test_fifo.basic                  PASS          80.00           0.00      41206.47  **
+                                                        ** test_fifo.reset_and_hold         PASS         102.00           0.00      50949.03  **
+                                                        ** test_fifo.fill_drain             PASS         330.00           0.00      80453.40  **
+                                                        ** test_fifo.overflow_protection    PASS         360.00           0.00      89985.07  **
+                                                        ** test_fifo.underflow_protection   PASS          90.00           0.00      90006.52  **
+                                                        ** test_fifo.boundaries             PASS         350.00           0.01      58007.92  **
+                                                        ** test_fifo.streaming              PASS         670.00           0.01      74428.15  **
+                                                        ** test_fifo.wraparound             PASS        1610.00           0.01     114996.58  **
+                                                        ** test_fifo.reset_during_traffic   PASS         410.00           0.00     102580.81  **
+                                                        ** test_fifo.data_patterns          PASS         250.00           0.00      80147.98  **
+                                                        ** test_fifo.randomized/seed=0      PASS       10550.00           0.09     113432.22  **
+                                                        ** test_fifo.randomized/seed=1      PASS       10550.00           0.09     114620.14  **
+                                                        ** test_fifo.randomized/seed=2      PASS       10550.00           0.09     117218.61  **
+                                                        ** test_fifo.randomized/seed=3      PASS       10550.00           0.09     113445.59  **
+                                                        ** test_fifo.randomized/seed=4      PASS       10550.00           0.12      88101.77  **
+                                                        ** test_fifo.randomized/seed=5      PASS       10550.00           0.09     112007.22  **
+                                                        ** test_fifo.randomized/seed=6      PASS       10550.00           0.09     111755.74  **
+                                                        ** test_fifo.randomized/seed=7      PASS       10550.00           0.09     112126.99  **
+                                                        ** test_fifo.randomized/seed=8      PASS       10540.00           0.12      87145.35  **
+                                                        ** test_fifo.randomized/seed=9      PASS       10530.00           0.12      90668.39  **
+                                                        ****************************************************************************************
+                                                        ** TESTS=20 PASS=20 FAIL=0 SKIP=0             109722.02           1.09     100881.08  **
+                                                        ****************************************************************************************
+cocotb=2.0.1; python=3.11.9
+PASS: 20 tests; 0 skipped

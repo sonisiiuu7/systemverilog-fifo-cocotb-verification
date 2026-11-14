@@ -1,0 +1,39 @@
+name: FIFO verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install simulator and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          python -m pip install -r requirements.txt
+          iverilog -V
+      - name: Verify simulator setup
+        run: python scripts/run.py --phase ci-smoke --suite smoke
+      - name: Directed and randomized regression
+        run: python scripts/run.py --phase ci-regression --suite random
+      - name: Detect deliberately injected faults
+        run: python scripts/mutate.py
+      - name: Upload execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-results
+          path: |
+            results/ci-*
+            results/phase5/early_full
+            results/phase5/overflow_write
+            results/phase5/stuck_read_pointer
+            results/phase5/mutation_summary.json
