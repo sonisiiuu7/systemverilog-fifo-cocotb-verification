@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261114" />
+    <testcase name="clocked_register" classname="test_smoke" file="tb\test_smoke.py" lineno="5" time="0.0" sim_time_ns="40.0" ratio_time="inf" />
+  </testsuite>
+</testsuites>
