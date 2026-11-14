@@ -3,6 +3,7 @@ from collections import Counter, deque
 import csv
 import json
 import os
+import random
 from pathlib import Path
 
 import cocotb
@@ -214,4 +215,39 @@ async def data_patterns(dut):
     for value in patterns:
         await s.step(wr=1, data=value)
         await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE != "random")
+@cocotb.parametrize(seed=list(range(10)))
+async def randomized(dut, seed):
+    rng = random.Random(seed)
+    s = Scoreboard(dut, f"random_seed_{seed}")
+    await s.step(rst=1)
+    # Deterministic boundary prelude guarantees rare scenarios are not left to luck.
+    await s.step(rd=1)
+    await s.step(wr=1, rd=1, data=rng.getrandbits(WIDTH))
+    await s.step(wr=1, rd=1, data=rng.getrandbits(WIDTH))
+    for _ in range(DEPTH-1):
+        await s.step(wr=1, data=rng.getrandbits(WIDTH))
+    await s.step(wr=1, data=rng.getrandbits(WIDTH))
+    await s.step(wr=1, rd=1, data=rng.getrandbits(WIDTH))
+    for _ in range(DEPTH-1):
+        await s.step(rd=1)
+    await s.step(wr=1, data=1)
+    await s.step(rst=1)
+    for cycle in range(1000):
+        # Write-biased, read-biased, and balanced bursts explore occupancy transitions.
+        mode = (cycle // 100) % 3
+        wp, rp = [(0.85, 0.15), (0.15, 0.85), (0.6, 0.6)][mode]
+        await s.step(wr=int(rng.random() < wp), rd=int(rng.random() < rp),
+                     data=rng.getrandbits(WIDTH), rst=int(rng.random() < 0.01))
+    while s.queue:
+        await s.step(rd=1)
+    await s.step()
+    required = ["pre_empty", "pre_partial", "pre_full", "rejected_read", "rejected_write",
+                "both_empty", "both_partial", "both_full", "read_wrap", "write_wrap",
+                "reset_nonempty", "request_00", "request_01", "request_10", "request_11"]
+    missing = [name for name in required if not s.coverage[name]]
+    assert not missing, f"seed={seed}: missing required scenarios {missing}"
     s.save()
