@@ -3,3 +3,4 @@ __pycache__/
 build/
 *.vcd
 *.fst
+!results/phase5/restored/sync_fifo.fst

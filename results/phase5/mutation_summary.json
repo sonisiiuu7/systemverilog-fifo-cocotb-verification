@@ -1,0 +1,37 @@
+[
+  {
+    "mutation": "early_full",
+    "detected": true,
+    "failed_tests": [
+      "fill_drain",
+      "overflow_protection",
+      "boundaries",
+      "wraparound",
+      "reset_during_traffic"
+    ],
+    "first_assertion": "AssertionError: fill_drain cycle=15 pre_count=14 wr=1 rd=0 rst=0: full actual=1 expected=0"
+  },
+  {
+    "mutation": "overflow_write",
+    "detected": true,
+    "failed_tests": [
+      "overflow_protection",
+      "boundaries"
+    ],
+    "first_assertion": "AssertionError: overflow_protection cycle=17 pre_count=16 wr=1 rd=0 rst=0: count actual=17 expected=16"
+  },
+  {
+    "mutation": "stuck_read_pointer",
+    "detected": true,
+    "failed_tests": [
+      "basic",
+      "fill_drain",
+      "overflow_protection",
+      "boundaries",
+      "streaming",
+      "wraparound",
+      "data_patterns"
+    ],
+    "first_assertion": "AssertionError: basic cycle=5 pre_count=2 wr=0 rd=1 rst=0: dout actual=17 expected=18"
+  }
+]

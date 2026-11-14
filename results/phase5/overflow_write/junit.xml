@@ -1,0 +1,49 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261114" />
+    <testcase name="basic" classname="test_fifo" file="tb\test_fifo.py" lineno="89" time="0.0020215511322021484" sim_time_ns="80.0" ratio_time="39573.57235523057" />
+    <testcase name="reset_and_hold" classname="test_fifo" file="tb\test_fifo.py" lineno="101" time="0.0009951591491699219" sim_time_ns="102.0" ratio_time="102496.16866315286" />
+    <testcase name="fill_drain" classname="test_fifo" file="tb\test_fifo.py" lineno="120" time="0.004980802536010742" sim_time_ns="329.99999999999994" ratio_time="66254.38322722702" />
+    <testcase name="overflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="131" time="0.0019991397857666016" sim_time_ns="180.0" ratio_time="90038.72629695885">
+      <failure error_type="AssertionError" error_msg="overflow_protection cycle=17 pre_count=16 wr=1 rd=0 rst=0: count actual=17 expected=16" />
+    </testcase>
+    <testcase name="underflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="144" time="0.0020055770874023438" sim_time_ns="90.0" ratio_time="44874.86447931526" />
+    <testcase name="boundaries" classname="test_fifo" file="tb\test_fifo.py" lineno="157" time="0.0020074844360351562" sim_time_ns="190.0" ratio_time="94645.81472684085">
+      <failure error_type="AssertionError" error_msg="boundaries cycle=18 pre_count=16 wr=1 rd=1 rst=0: count actual=16 expected=15" />
+    </testcase>
+    <testcase name="streaming" classname="test_fifo" file="tb\test_fifo.py" lineno="172" time="0.007992267608642578" sim_time_ns="670.0000000000001" ratio_time="83831.0267883778" />
+    <testcase name="wraparound" classname="test_fifo" file="tb\test_fifo.py" lineno="183" time="0.01399374008178711" sim_time_ns="1610.0" ratio_time="115051.44375915767" />
+    <testcase name="reset_during_traffic" classname="test_fifo" file="tb\test_fifo.py" lineno="195" time="0.006997823715209961" sim_time_ns="410.0" ratio_time="58589.643964430514" />
+    <testcase name="data_patterns" classname="test_fifo" file="tb\test_fifo.py" lineno="210" time="0.0029990673065185547" sim_time_ns="250.0" ratio_time="83359.24954288894" />
+    <testcase name="randomized/seed=0" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=1" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=2" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=3" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=4" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=5" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=6" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=7" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=8" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized/seed=9" classname="test_fifo" file="C:\Users\UDAY\Documents\Codex\2026-11-14\1-asic-design-verification-engineer-intern\work\venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+  </testsuite>
+</testsuites>

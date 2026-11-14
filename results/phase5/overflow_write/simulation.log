@@ -1,0 +1,82 @@
+     -.--ns INFO     gpi                                ..mbed\gpi_embed.cpp:94   in _embed_init_python              Using Python 3.11.9 interpreter at <workspace>\work\venv\Scripts\python.exe
+     -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with supplied seed 20261114
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from <workspace>\work\venv\Lib\site-packages\cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_fifo.basic (1/20)
+    80.00ns INFO     cocotb.regression                  test_fifo.basic passed
+    80.00ns INFO     cocotb.regression                  running test_fifo.reset_and_hold (2/20)
+   182.00ns INFO     cocotb.regression                  test_fifo.reset_and_hold passed
+   182.00ns INFO     cocotb.regression                  running test_fifo.fill_drain (3/20)
+   512.00ns INFO     cocotb.regression                  test_fifo.fill_drain passed
+   512.00ns INFO     cocotb.regression                  running test_fifo.overflow_protection (4/20)
+   692.00ns WARNING  ..w_protection.overflow_protection overflow_protection cycle=17 pre_count=16 wr=1 rd=0 rst=0: count actual=17 expected=16
+                                                        Traceback (most recent call last):
+                                                          File "<workspace>\outputs\fifo-verification\tb\test_fifo.py", line 138, in overflow_protection
+                                                            await s.step(wr=1, data=(1 << WIDTH)-1)
+                                                          File "<workspace>\outputs\fifo-verification\tb\test_fifo.py", line 75, in step
+                                                            assert actual[key] == expected[key], f"{context}: {key} actual={actual[key]} expected={expected[key]}"
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                        AssertionError: overflow_protection cycle=17 pre_count=16 wr=1 rd=0 rst=0: count actual=17 expected=16
+   692.00ns WARNING  cocotb.regression                  test_fifo.overflow_protection failed
+   692.00ns INFO     cocotb.regression                  running test_fifo.underflow_protection (5/20)
+   782.00ns INFO     cocotb.regression                  test_fifo.underflow_protection passed
+   782.00ns INFO     cocotb.regression                  running test_fifo.boundaries (6/20)
+   972.00ns WARNING  cocotb.Test boundaries.boundaries  boundaries cycle=18 pre_count=16 wr=1 rd=1 rst=0: count actual=16 expected=15
+                                                        Traceback (most recent call last):
+                                                          File "<workspace>\outputs\fifo-verification\tb\test_fifo.py", line 165, in boundaries
+                                                            await s.step(wr=1, rd=1, data=0)  # Full: write rejected.
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                          File "<workspace>\outputs\fifo-verification\tb\test_fifo.py", line 75, in step
+                                                            assert actual[key] == expected[key], f"{context}: {key} actual={actual[key]} expected={expected[key]}"
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                        AssertionError: boundaries cycle=18 pre_count=16 wr=1 rd=1 rst=0: count actual=16 expected=15
+   972.00ns WARNING  cocotb.regression                  test_fifo.boundaries failed
+   972.00ns INFO     cocotb.regression                  running test_fifo.streaming (7/20)
+  1642.01ns INFO     cocotb.regression                  test_fifo.streaming passed
+  1642.01ns INFO     cocotb.regression                  running test_fifo.wraparound (8/20)
+  3252.01ns INFO     cocotb.regression                  test_fifo.wraparound passed
+  3252.01ns INFO     cocotb.regression                  running test_fifo.reset_during_traffic (9/20)
+  3662.01ns INFO     cocotb.regression                  test_fifo.reset_during_traffic passed
+  3662.01ns INFO     cocotb.regression                  running test_fifo.data_patterns (10/20)
+  3912.01ns INFO     cocotb.regression                  test_fifo.data_patterns passed
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=0 (11/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=1 (12/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=2 (13/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=3 (14/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=4 (15/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=5 (16/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=6 (17/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=7 (18/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=8 (19/20)
+  3912.01ns INFO     cocotb.regression                  skipping test_fifo.randomized/seed=9 (20/20)
+  3912.01ns INFO     cocotb.regression                  ****************************************************************************************
+                                                        ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ****************************************************************************************
+                                                        ** test_fifo.basic                  PASS          80.00           0.00      39573.57  **
+                                                        ** test_fifo.reset_and_hold         PASS         102.00           0.00     102496.17  **
+                                                        ** test_fifo.fill_drain             PASS         330.00           0.00      66254.38  **
+                                                        ** test_fifo.overflow_protection    FAIL         180.00           0.00      90038.73  **
+                                                        ** test_fifo.underflow_protection   PASS          90.00           0.00      44874.86  **
+                                                        ** test_fifo.boundaries             FAIL         190.00           0.00      94645.81  **
+                                                        ** test_fifo.streaming              PASS         670.00           0.01      83831.03  **
+                                                        ** test_fifo.wraparound             PASS        1610.00           0.01     115051.44  **
+                                                        ** test_fifo.reset_during_traffic   PASS         410.00           0.01      58589.64  **
+                                                        ** test_fifo.data_patterns          PASS         250.00           0.00      83359.25  **
+                                                        ** test_fifo.randomized/seed=0      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=1      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=2      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=3      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=4      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=5      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=6      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=7      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=8      SKIP           0.00           0.00          -.--  **
+                                                        ** test_fifo.randomized/seed=9      SKIP           0.00           0.00          -.--  **
+                                                        ****************************************************************************************
+                                                        ** TESTS=20 PASS=8 FAIL=2 SKIP=10               3912.01           0.08      51474.63  **
+                                                        ****************************************************************************************
+cocotb=2.0.1; python=3.11.9
+FAIL: 20 tests, 2 failures/errors

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -18,6 +19,7 @@ def main():
     parser.add_argument("--width", type=int, default=8)
     parser.add_argument("--depth", type=int, default=16)
     parser.add_argument("--rtl", type=Path)
+    parser.add_argument("--waves", action="store_true")
     parser.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     result = ROOT / "results" / args.phase
@@ -46,7 +48,7 @@ def main():
     top = "smoke" if smoke else "sync_fifo"
     build = ROOT / "build" / args.phase
     runner = get_runner("icarus")
-    runner.build(sources=[source], hdl_toplevel=top, build_dir=build, always=True,
+    runner.build(sources=[source], hdl_toplevel=top, build_dir=build, always=True, waves=args.waves,
                  parameters={} if smoke else {"WIDTH": args.width, "DEPTH": args.depth},
                  build_args=["-g2012", "-Wall"], timescale=("1ns", "1ps"))
     sys.path.insert(0, str(ROOT / "tb"))
@@ -55,16 +57,22 @@ def main():
         xml.unlink()
     runner.test(hdl_toplevel=top, test_module="test_smoke" if smoke else "test_fifo",
                 build_dir=build, test_dir=build, results_xml=str(xml),
-                seed=20261114,
+                seed=20261114, waves=args.waves,
                 extra_env={"FIFO_SUITE": args.suite, "FIFO_WIDTH": str(args.width),
                            "FIFO_DEPTH": str(args.depth), "FIFO_RESULTS": str(result)})
     tree = ET.parse(xml)
     tests = list(tree.iter("testcase"))
     failures = list(tree.iter("failure")) + list(tree.iter("error"))
-    if not tests or failures:
+    skipped = list(tree.iter("skipped"))
+    executed = len(tests) - len(skipped)
+    if not executed or failures:
         print(f"FAIL: {len(tests)} tests, {len(failures)} failures/errors")
         return 1
-    print(f"PASS: {len(tests)} tests")
+    if args.waves:
+        waveform = build / f"{top}.fst"
+        assert waveform.exists() and waveform.stat().st_size > 0, "Missing waveform"
+        shutil.copy2(waveform, result / waveform.name)
+    print(f"PASS: {executed} tests; {len(skipped)} skipped")
     return 0
 
 

@@ -1,0 +1,8 @@
+{
+  "suite": "directed",
+  "width": 8,
+  "depth": 16,
+  "python": "3.11.9",
+  "source_sha256": "0d64179ed85910d1003f230ebbdd547818e61aa57ad9b26f7812c605a40e44e1",
+  "exit_code": 1
+}
