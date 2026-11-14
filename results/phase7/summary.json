@@ -1,0 +1,60 @@
+{
+  "configurations": [
+    {
+      "width": 1,
+      "depth": 2,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10129,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    },
+    {
+      "width": 8,
+      "depth": 3,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10156,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    },
+    {
+      "width": 5,
+      "depth": 5,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10210,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    },
+    {
+      "width": 8,
+      "depth": 16,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10547,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    },
+    {
+      "width": 16,
+      "depth": 17,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10564,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    },
+    {
+      "width": 32,
+      "depth": 32,
+      "tests_passed": 20,
+      "randomized_cycles": 10000,
+      "random_test_cycles_including_prelude_and_drain": 10956,
+      "required_scenario_bins_per_seed": 15,
+      "status": "PASS"
+    }
+  ],
+  "total_tests_passed": 120,
+  "total_randomized_cycles": 60000
+}

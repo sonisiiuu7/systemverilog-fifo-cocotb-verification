@@ -1,0 +1,8 @@
+{
+  "suite": "random",
+  "width": 32,
+  "depth": 32,
+  "python": "3.11.9",
+  "source_sha256": "5a197a484b7942d2dcf6eadb7377894849d07543c01784f41da0d966e0194232",
+  "exit_code": 0
+}

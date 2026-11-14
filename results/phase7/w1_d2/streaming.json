@@ -1,0 +1,16 @@
+{
+  "cycles": 11,
+  "coverage": {
+    "reset_empty": 1,
+    "pre_empty": 1,
+    "request_10": 1,
+    "accepted_write": 9,
+    "pre_partial": 9,
+    "request_11": 8,
+    "both_partial": 8,
+    "accepted_read": 9,
+    "write_wrap": 4,
+    "read_wrap": 4,
+    "request_01": 1
+  }
+}

@@ -1,0 +1,25 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261114" />
+    <testcase name="basic" classname="test_fifo" file="tb\test_fifo.py" lineno="89" time="0.0020494461059570312" sim_time_ns="80.0" ratio_time="39034.93718008376" />
+    <testcase name="reset_and_hold" classname="test_fifo" file="tb\test_fifo.py" lineno="101" time="0.002003192901611328" sim_time_ns="102.0" ratio_time="50918.71078314687" />
+    <testcase name="fill_drain" classname="test_fifo" file="tb\test_fifo.py" lineno="120" time="0.010030508041381836" sim_time_ns="650.0" ratio_time="64802.30087233486" />
+    <testcase name="overflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="131" time="0.008087158203125" sim_time_ns="679.9999999999999" ratio_time="84083.92452830187" />
+    <testcase name="underflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="144" time="0.0020017623901367188" sim_time_ns="90.0" ratio_time="44960.38113387327" />
+    <testcase name="boundaries" classname="test_fifo" file="tb\test_fifo.py" lineno="157" time="0.010002613067626953" sim_time_ns="670.0" ratio_time="66982.49702054632" />
+    <testcase name="streaming" classname="test_fifo" file="tb\test_fifo.py" lineno="172" time="0.013001680374145508" sim_time_ns="1310.0" ratio_time="100756.20706728037" />
+    <testcase name="wraparound" classname="test_fifo" file="tb\test_fifo.py" lineno="183" time="0.029096126556396484" sim_time_ns="3209.9999999999995" ratio_time="110323.96335567608" />
+    <testcase name="reset_during_traffic" classname="test_fifo" file="tb\test_fifo.py" lineno="195" time="0.00594639778137207" sim_time_ns="650.0" ratio_time="109309.8753057215" />
+    <testcase name="data_patterns" classname="test_fifo" file="tb\test_fifo.py" lineno="210" time="0.008994817733764648" sim_time_ns="730.0" ratio_time="81157.8423940414" />
+    <testcase name="randomized/seed=0" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09508180618286133" sim_time_ns="11029.999999999998" ratio_time="116005.36887979497" />
+    <testcase name="randomized/seed=1" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09600138664245605" sim_time_ns="11020.0" ratio_time="114790.00861771374" />
+    <testcase name="randomized/seed=2" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.11211633682250977" sim_time_ns="11020.000000000004" ratio_time="98290.76040404044" />
+    <testcase name="randomized/seed=3" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10310029983520508" sim_time_ns="11030.0" ratio_time="106983.2000258999" />
+    <testcase name="randomized/seed=4" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.11495590209960938" sim_time_ns="11020.0" ratio_time="95862.84652397544" />
+    <testcase name="randomized/seed=5" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.094757080078125" sim_time_ns="11030.0" ratio_time="116402.9114331723" />
+    <testcase name="randomized/seed=6" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.0930018424987793" sim_time_ns="10750.0" ratio_time="115589.10781946174" />
+    <testcase name="randomized/seed=7" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10600066184997559" sim_time_ns="11030.0" ratio_time="104055.95406197495" />
+    <testcase name="randomized/seed=8" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10811543464660645" sim_time_ns="10730.0" ratio_time="99245.77406614344" />
+    <testcase name="randomized/seed=9" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10409784317016602" sim_time_ns="10900.0" ratio_time="104709.18193936118" />
+  </testsuite>
+</testsuites>

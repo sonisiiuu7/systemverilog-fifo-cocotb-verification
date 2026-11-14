@@ -1,4 +1,4 @@
-param([string]$Phase = 'local', [switch]$Mutations)
+param([string]$Phase = 'local', [switch]$Mutations, [switch]$Sweep)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $python = Join-Path $projectRoot '.venv\Scripts\python.exe'
@@ -11,5 +11,9 @@ try {
     if ($Mutations) {
         & $python (Join-Path $PSScriptRoot 'mutate.py')
         if ($LASTEXITCODE -ne 0) { throw 'Fault-detection verification failed.' }
+    }
+    if ($Sweep) {
+        & $python (Join-Path $PSScriptRoot 'sweep.py')
+        if ($LASTEXITCODE -ne 0) { throw 'Parameter sweep failed.' }
     }
 } finally { $env:PATH = $oldPath }

@@ -1,0 +1,23 @@
+{
+  "cycles": 1103,
+  "coverage": {
+    "reset_empty": 2,
+    "pre_empty": 189,
+    "request_01": 336,
+    "rejected_read": 140,
+    "request_11": 196,
+    "both_empty": 35,
+    "accepted_write": 533,
+    "pre_partial": 816,
+    "both_partial": 150,
+    "accepted_read": 392,
+    "request_10": 405,
+    "write_wrap": 11,
+    "pre_full": 86,
+    "rejected_write": 68,
+    "both_full": 11,
+    "read_wrap": 9,
+    "reset_nonempty": 10,
+    "request_00": 154
+  }
+}

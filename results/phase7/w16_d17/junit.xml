@@ -1,0 +1,25 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261114" />
+    <testcase name="basic" classname="test_fifo" file="tb\test_fifo.py" lineno="89" time="0.0029938220977783203" sim_time_ns="80.0" ratio_time="26721.69467229434" />
+    <testcase name="reset_and_hold" classname="test_fifo" file="tb\test_fifo.py" lineno="101" time="0.0020003318786621094" sim_time_ns="102.0" ratio_time="50991.538498212154" />
+    <testcase name="fill_drain" classname="test_fifo" file="tb\test_fifo.py" lineno="120" time="0.005006313323974609" sim_time_ns="349.99999999999994" ratio_time="69911.72492618344" />
+    <testcase name="overflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="131" time="0.00599217414855957" sim_time_ns="380.0" ratio_time="63416.047427684716" />
+    <testcase name="underflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="144" time="0.0009920597076416016" sim_time_ns="90.0" ratio_time="90720.34607065609" />
+    <testcase name="boundaries" classname="test_fifo" file="tb\test_fifo.py" lineno="157" time="0.008999824523925781" sim_time_ns="370.0000000000001" ratio_time="41111.91268411573" />
+    <testcase name="streaming" classname="test_fifo" file="tb\test_fifo.py" lineno="172" time="0.011017322540283203" sim_time_ns="709.9999999999998" ratio_time="64443.96970352736" />
+    <testcase name="wraparound" classname="test_fifo" file="tb\test_fifo.py" lineno="183" time="0.015994548797607422" sim_time_ns="1710.0" ratio_time="106911.4247383955" />
+    <testcase name="reset_during_traffic" classname="test_fifo" file="tb\test_fifo.py" lineno="195" time="0.0049974918365478516" sim_time_ns="420.0" ratio_time="84042.15829397453" />
+    <testcase name="data_patterns" classname="test_fifo" file="tb\test_fifo.py" lineno="210" time="0.008006095886230469" sim_time_ns="410.0" ratio_time="51210.97796307326" />
+    <testcase name="randomized/seed=0" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09499621391296387" sim_time_ns="10580.0" ratio_time="111372.8596562118" />
+    <testcase name="randomized/seed=1" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09610247611999512" sim_time_ns="10579.999999999998" ratio_time="110090.81583693679" />
+    <testcase name="randomized/seed=2" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.0991816520690918" sim_time_ns="10580.000000000004" ratio_time="106672.95592767277" />
+    <testcase name="randomized/seed=3" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10647058486938477" sim_time_ns="10580.0" ratio_time="99370.1688872965" />
+    <testcase name="randomized/seed=4" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.10140752792358398" sim_time_ns="10510.0" ratio_time="103641.22087582934" />
+    <testcase name="randomized/seed=5" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.1042935848236084" sim_time_ns="10580.0" ratio_time="101444.39869330352" />
+    <testcase name="randomized/seed=6" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09599661827087402" sim_time_ns="10580.0" ratio_time="110212.2157068739" />
+    <testcase name="randomized/seed=7" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.1036527156829834" sim_time_ns="10500.0" ratio_time="101299.80609590317" />
+    <testcase name="randomized/seed=8" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09719204902648926" sim_time_ns="10580.0" ratio_time="108856.64111388853" />
+    <testcase name="randomized/seed=9" classname="test_fifo" file=".venv\Lib\site-packages\cocotb\_decorators.py" lineno="221" time="0.09598398208618164" sim_time_ns="10570.0" ratio_time="110122.54097261206" />
+  </testsuite>
+</testsuites>

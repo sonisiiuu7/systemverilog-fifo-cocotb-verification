@@ -26,6 +26,8 @@ jobs:
         run: python scripts/run.py --phase ci-regression --suite random
       - name: Detect deliberately injected faults
         run: python scripts/mutate.py
+      - name: Verify six parameter configurations
+        run: python scripts/sweep.py
       - name: Upload execution evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -37,3 +39,4 @@ jobs:
             results/phase5/overflow_write
             results/phase5/stuck_read_pointer
             results/phase5/mutation_summary.json
+            results/phase7

@@ -6,6 +6,8 @@ A synthesizable, parameterized synchronous FIFO and an independent Python scoreb
 
 **Verified baseline:** 10 directed tests + 10 seeded random tests pass at WIDTH=8, DEPTH=16. Each seed runs 1,000 randomized cycles plus a boundary prelude and drain. All 15 required functional scenario bins are exercised per seed. Three deliberate RTL faults are detected. These are simulation results, not formal proof, silicon validation, or HDL code-coverage claims.
 
+**Parameter extension:** all 120 tests pass across (WIDTH, DEPTH) = (1,2), (8,3), (5,5), (8,16), (16,17), and (32,32), totaling 60,000 randomized cycles plus deterministic preludes and drains. See [the execution summary](results/phase7/summary.json).
+
 ## Architecture
 
 ```mermaid
@@ -43,6 +45,14 @@ powershell -ExecutionPolicy Bypass -File scripts/verify.ps1
 
 The bootstrap creates only project-local `.venv` and `.tools` directories. It downloads a checksum-verified Icarus binary and uses the existing Git for Windows zlib DLL when necessary. It does not change the global PATH. `-ExecutionPolicy Bypass` applies to that process, not the machine configuration.
 
+For the baseline, all three mutation checks, and the complete parameter sweep together:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/verify.ps1 -Mutations -Sweep
+```
+
+This reruns and updates the corresponding mutation/sweep result files. Historical evidence remains available in Git history.
+
 ### Ubuntu / Linux
 
 ```bash
@@ -53,6 +63,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python scripts/run.py --phase local --suite random
 python scripts/mutate.py
+python scripts/sweep.py
 ```
 
 Use an Icarus version compatible with cocotb 2.0.1 (11.0 or later). The GitHub workflow records the installed simulator version in its logs.
@@ -85,7 +96,7 @@ Mutation runs intentionally overwrite the reproducible `results/phase5` mutation
 | 4 | Random traffic and scenario gates | [20 passing tests](results/phase4) |
 | 5 | Fault injection and waveform inspection | [Mutation summary](results/phase5/mutation_summary.json), [passing rerun](results/phase5/restored), [debug notes](docs/debug_notes.md) |
 | 6 | Documentation and reproducible automation | [Release checks](results/phase6), [CI workflow](.github/workflows/verify.yml) |
-| 7 | Parameter sweep extension | Next phase: verify additional widths and depths |
+| 7 | Parameter sweep extension | [Six configurations, 120 passing tests](results/phase7/summary.json) |
 
 ![Verified boundary samples](docs/images/boundary_trace.png)
 
