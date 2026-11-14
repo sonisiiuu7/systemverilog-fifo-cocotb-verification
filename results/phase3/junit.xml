@@ -1,0 +1,15 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261114" />
+    <testcase name="basic" classname="test_fifo" file="tb\test_fifo.py" lineno="88" time="0.0029883384704589844" sim_time_ns="80.0" ratio_time="26770.729216531035" />
+    <testcase name="reset_and_hold" classname="test_fifo" file="tb\test_fifo.py" lineno="100" time="0.003007650375366211" sim_time_ns="102.0" ratio_time="33913.5162901308" />
+    <testcase name="fill_drain" classname="test_fifo" file="tb\test_fifo.py" lineno="119" time="0.005140781402587891" sim_time_ns="329.99999999999994" ratio_time="64192.57582784527" />
+    <testcase name="overflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="130" time="0.004018545150756836" sim_time_ns="360.0" ratio_time="89584.65974488283" />
+    <testcase name="underflow_protection" classname="test_fifo" file="tb\test_fifo.py" lineno="143" time="0.001989126205444336" sim_time_ns="90.0" ratio_time="45245.9978425027" />
+    <testcase name="boundaries" classname="test_fifo" file="tb\test_fifo.py" lineno="156" time="0.005997419357299805" sim_time_ns="350.0000000000001" ratio_time="58358.43371099187" />
+    <testcase name="streaming" classname="test_fifo" file="tb\test_fifo.py" lineno="171" time="0.011996030807495117" sim_time_ns="670.0" ratio_time="55851.807214548346" />
+    <testcase name="wraparound" classname="test_fifo" file="tb\test_fifo.py" lineno="182" time="0.01620340347290039" sim_time_ns="1610.0" ratio_time="99361.84102881022" />
+    <testcase name="reset_during_traffic" classname="test_fifo" file="tb\test_fifo.py" lineno="194" time="0.00414729118347168" sim_time_ns="410.0" ratio_time="98859.70911181373" />
+    <testcase name="data_patterns" classname="test_fifo" file="tb\test_fifo.py" lineno="209" time="0.0029823780059814453" sim_time_ns="250.0" ratio_time="83825.72547765609" />
+  </testsuite>
+</testsuites>

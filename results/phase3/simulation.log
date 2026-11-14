@@ -1,0 +1,45 @@
+     -.--ns INFO     gpi                                ..mbed\gpi_embed.cpp:94   in _embed_init_python              Using Python 3.11.9 interpreter at <workspace>\work\venv\Scripts\python.exe
+     -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with supplied seed 20261114
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from <workspace>\work\venv\Lib\site-packages\cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_fifo.basic (1/10)
+    80.00ns INFO     cocotb.regression                  test_fifo.basic passed
+    80.00ns INFO     cocotb.regression                  running test_fifo.reset_and_hold (2/10)
+   182.00ns INFO     cocotb.regression                  test_fifo.reset_and_hold passed
+   182.00ns INFO     cocotb.regression                  running test_fifo.fill_drain (3/10)
+   512.00ns INFO     cocotb.regression                  test_fifo.fill_drain passed
+   512.00ns INFO     cocotb.regression                  running test_fifo.overflow_protection (4/10)
+   872.00ns INFO     cocotb.regression                  test_fifo.overflow_protection passed
+   872.00ns INFO     cocotb.regression                  running test_fifo.underflow_protection (5/10)
+   962.00ns INFO     cocotb.regression                  test_fifo.underflow_protection passed
+   962.00ns INFO     cocotb.regression                  running test_fifo.boundaries (6/10)
+  1312.01ns INFO     cocotb.regression                  test_fifo.boundaries passed
+  1312.01ns INFO     cocotb.regression                  running test_fifo.streaming (7/10)
+  1982.01ns INFO     cocotb.regression                  test_fifo.streaming passed
+  1982.01ns INFO     cocotb.regression                  running test_fifo.wraparound (8/10)
+  3592.01ns INFO     cocotb.regression                  test_fifo.wraparound passed
+  3592.01ns INFO     cocotb.regression                  running test_fifo.reset_during_traffic (9/10)
+  4002.01ns INFO     cocotb.regression                  test_fifo.reset_during_traffic passed
+  4002.01ns INFO     cocotb.regression                  running test_fifo.data_patterns (10/10)
+  4252.01ns INFO     cocotb.regression                  test_fifo.data_patterns passed
+  4252.01ns INFO     cocotb.regression                  ****************************************************************************************
+                                                        ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ****************************************************************************************
+                                                        ** test_fifo.basic                  PASS          80.00           0.00      26770.73  **
+                                                        ** test_fifo.reset_and_hold         PASS         102.00           0.00      33913.52  **
+                                                        ** test_fifo.fill_drain             PASS         330.00           0.01      64192.58  **
+                                                        ** test_fifo.overflow_protection    PASS         360.00           0.00      89584.66  **
+                                                        ** test_fifo.underflow_protection   PASS          90.00           0.00      45246.00  **
+                                                        ** test_fifo.boundaries             PASS         350.00           0.01      58358.43  **
+                                                        ** test_fifo.streaming              PASS         670.00           0.01      55851.81  **
+                                                        ** test_fifo.wraparound             PASS        1610.00           0.02      99361.84  **
+                                                        ** test_fifo.reset_during_traffic   PASS         410.00           0.00      98859.71  **
+                                                        ** test_fifo.data_patterns          PASS         250.00           0.00      83825.73  **
+                                                        ****************************************************************************************
+                                                        ** TESTS=10 PASS=10 FAIL=0 SKIP=0               4252.01           0.07      60389.27  **
+                                                        ****************************************************************************************
+cocotb=2.0.1; python=3.11.9
+PASS: 10 tests

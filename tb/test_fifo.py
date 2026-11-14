@@ -95,3 +95,123 @@ async def basic(dut):
         await s.step(rd=1)
     await s.step()
     s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def reset_and_hold(dut):
+    s = Scoreboard(dut, "reset_and_hold")
+    await s.step(rst=1)
+    await s.step(wr=1, data=(1 << WIDTH)-1)
+    await s.step(rd=1)
+    for _ in range(4):
+        await s.step()
+    await s.step(wr=1, data=1)
+    # Asserting synchronous reset between clock edges must not reset state yet.
+    dut.clk.value = 0
+    dut.rst.value = 1
+    await Timer(2, unit="ns")
+    assert int(dut.count.value) == 1, "Reset must be synchronous"
+    await s.step(rst=1, wr=1, rd=1, data=1)
+    await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def fill_drain(dut):
+    s = Scoreboard(dut, "fill_drain")
+    await s.step(rst=1)
+    for value in range(DEPTH):
+        await s.step(wr=1, data=value)
+    for _ in range(DEPTH):
+        await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def overflow_protection(dut):
+    s = Scoreboard(dut, "overflow_protection")
+    await s.step(rst=1)
+    for value in range(DEPTH):
+        await s.step(wr=1, data=value)
+    for _ in range(3):
+        await s.step(wr=1, data=(1 << WIDTH)-1)
+    for _ in range(DEPTH):
+        await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def underflow_protection(dut):
+    s = Scoreboard(dut, "underflow_protection")
+    await s.step(rst=1)
+    for _ in range(3):
+        await s.step(rd=1)
+    await s.step(wr=1, data=1)
+    await s.step(rd=1)
+    for _ in range(3):
+        await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def boundaries(dut):
+    s = Scoreboard(dut, "boundaries")
+    await s.step(rst=1)
+    await s.step(wr=1, rd=1, data=1)  # Empty: no bypass.
+    await s.step(wr=1, rd=1, data=2)  # Partial: both accepted.
+    for value in range(DEPTH-1):
+        await s.step(wr=1, data=value+3)
+    await s.step(wr=1, rd=1, data=0)  # Full: write rejected.
+    for _ in range(DEPTH-1):
+        await s.step(rd=1)
+    await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def streaming(dut):
+    s = Scoreboard(dut, "streaming")
+    await s.step(rst=1)
+    await s.step(wr=1, data=7)
+    for value in range(DEPTH*4):
+        await s.step(wr=1, rd=1, data=value)
+    await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def wraparound(dut):
+    s = Scoreboard(dut, "wraparound")
+    await s.step(rst=1)
+    for repeat in range(5):
+        for value in range(DEPTH):
+            await s.step(wr=1, data=repeat*DEPTH+value)
+        for _ in range(DEPTH):
+            await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def reset_during_traffic(dut):
+    s = Scoreboard(dut, "reset_during_traffic")
+    await s.step(rst=1)
+    for fill in [1, DEPTH//2, DEPTH]:
+        for value in range(fill):
+            await s.step(wr=1, data=value)
+        await s.step(rst=1, wr=1, rd=1, data=1)
+        await s.step(rst=1)
+        await s.step(rd=1)
+        await s.step(wr=1, data=(1 << WIDTH)-1)
+        await s.step(rd=1)
+    s.save()
+
+
+@cocotb.test(skip=SUITE == "basic")
+async def data_patterns(dut):
+    s = Scoreboard(dut, "data_patterns")
+    await s.step(rst=1)
+    patterns = [0, (1 << WIDTH)-1, 0xAA, 0x55] + [1 << bit for bit in range(WIDTH)]
+    for value in patterns:
+        await s.step(wr=1, data=value)
+        await s.step(rd=1)
+    s.save()
